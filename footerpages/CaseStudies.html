@@ -2,13 +2,243 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Case-Studies</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="../img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
 
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Kharadi,pune,Maharashtra,India,411014</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+91 90215 68448</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@koinetmedia.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/MediaKoinet"><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/koiNetMediaITES"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/31556606/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/koinetmedia"><i class="fab fa-instagram fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+            <a href="../index.html" class="navbar-brand p-0">
+                <img src="../images/Logo.png" alt="logo" width="150px" height="40px" />
+                <h5 class="mt-2">Koinet Media Ites Pvt Ltd.</h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse my-5">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="../index.html" class="nav-item nav-link">Home</a>
+                    <a href="../about.html" class="nav-item nav-link ">About</a>
+                    <a href="../service.html" class="nav-item nav-link">Services</a>
+                    <a href="../blog.html" class="nav-item nav-link">Blog</a>
+                    <a href="../contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <!-- Navbar End -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <h1 class="fw-bold text-center my-5">
+                        <span class="text-red">C</span>ase <span class="text-red">S</span>tudies Of <span class="text-red">K</span>oinet <span class="text-red">M</span>edia</h1>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <img src="../images/casestudies.jpg" alt="casestudies" class="img-fluid" />
+                        </div>
+                        <div class="text-center my-3">
+                            <button id="open_modal" class="btn btn-danger btn-lg p-4 hover_btn">Download Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-5 shadow border-0 rounded-5">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="../images/Logo.png" alt="" class="img-fluid mb-3" width="200px" height="50px">
+                    <p class="fw-bold fs-4">Case-Studies Of Koinet Media.</p>
+                    <p class="fs-2 fw-bold">Thank you for your interest! </p>
+                    <p>Our team will get in touch at after downloading our case-studies</p>
+                    <form class="position-relative">
+                        <input class="form-control popupBg w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Enter your email " required>
+                        <button type="submit" id="downloadpdfbutton" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-3">Download PDF</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var button = document.getElementById('open_modal');
+            var welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+
+            button.addEventListener('click', function() {
+                welcomeModal.show();
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById('downloadpdfbutton').addEventListener('click', function() {
+            var pdfFilePath = '../images/CaseStudy.pdf';
+            var link = document.createElement('a');
+            link.href = pdfFilePath;
+            link.download = pdfFilePath.split('/').pop();
+            link.click();
+        });
+    </script>
+
+    <!-- recaptcha -->
+    <form action="/login" method="POST">
+        <div class="recaptcha-container">
+            <div class="g-recaptcha" data-sitekey="6Ld3OPYpAAAAAEFwTbe61yzBBwg07nogKwTY82iu"></div>
+        </div>
+
+    </form>
+
+    <footer>
+        <div class="container-fluid mt-5 rounded-5 py-5 wow  fadeIn" data-wow-delay="0.1s">
+
+            <div class="container-fluid rounded-5 bg-dark content-container">
+                <div class="row g-5 p-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Our Office</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kharadi, Pune, Maharashtra, India, 411014</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 9021568448</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@koinetmedia.com</p>
+                        <div class="d-flex pt-3">
+                            <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/MediaKoinet"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/koiNetMediaITES"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/31556606/"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/koinetmedia"><i class="fab fa-instagram fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <a class="btn btn-link" href="../footerpages/Privacy-policy.html">Privacy Policy</a>
+                        <a class="btn btn-link" href="../footerpages/GDPR.html">GDPR</a>
+                        <a class="btn btn-link" href="../footerpages/CCPA.html">CCPA</a>
+                        <a class="btn btn-link" href="../footerpages/Terms-Condition.html">Terms & Condition</a>
+                        <a class="btn btn-link" href="../footerpages/Cookies.html">Cookies</a>
+                        <a class="btn btn-link" href="../footerpages/CaseStudies.html">Case Studies</a>
+                        <a class="btn btn-link" href="../footerpages/Media_Kit.html">MediaKit</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Business Hours</h4>
+                        <p class="mb-1">Monday - Friday</p>
+                        <h6 class="text-light">We are open 24 hours a day, 5 days a week.</h6>
+                        <p class="mb-1">Saturday</p>
+                        <h6 class="text-light">Closed</h6>
+                        <p class="mb-1">Sunday</p>
+                        <h6 class="text-light">Closed</h6>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Newsletter</h4>
+                        <p>You can opt out of our newsletters at any time. See our privacy policy</p>
+                        <div class="position-relative w-100">
+                            <form action="/send-email" method="post" class="position-relative">
+                                <input class="form-control  w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Your email" required />
+                                <button type="submit" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright  py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="fw-medium text-light" href="#">Koinet | Media</a>, All Right Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+    </footer>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-danger btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- <script src="lib/wow/wow.min.js"></script> -->
+    <script src="../lib/wow/wow.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/counterup/counterup.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
 </body>
+
 
 </html>
