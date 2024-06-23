@@ -7,6 +7,10 @@
     --dark: #091E3E;
 }
 
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
 
 /*** Spinner ***/
 
@@ -84,7 +88,6 @@ h6,
 /*** Button ***/
 
 .btn {
-    font-family: 'Nunito', sans-serif;
     font-weight: 600;
     transition: .5s;
 }
@@ -130,11 +133,10 @@ h6,
 /*** Navbar ***/
 
 .navbar-dark .navbar-nav .nav-link {
-    font-family: 'Nunito', sans-serif;
     position: relative;
     margin-left: 25px;
     padding: 35px 0;
-    color: #FFFFFF;
+    color: white;
     font-size: 18px;
     font-weight: 600;
     outline: none;
@@ -220,7 +222,7 @@ h6,
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(9, 30, 62, .7);
+    background: rgba(15, 53, 109, 0.384);
     z-index: 1;
 }
 
@@ -522,7 +524,7 @@ h6,
 }
 
 .text-red {
-    color: red;
+    color: #DD1212;
 }
 
 .workProcess {
@@ -596,4 +598,104 @@ h6,
 .serchBg {
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 213, 255, 0.541) 100%);
+}
+
+.recaptcha-container {
+    position: fixed;
+    bottom: 0;
+    margin-left: -220px;
+    z-index: 1000;
+}
+
+.recaptcha-container:hover {
+    position: fixed;
+    bottom: 0;
+    margin-left: 0px;
+    z-index: 1000;
+    transition: margin-left 1s;
+}
+
+.rounded-border {
+    border-radius: 20px;
+}
+
+.multiBg {
+    background-image: url('../images/s6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/s6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.animate-text {
+    display: inline-block;
+    animation: upDown 2s ease-in-out infinite;
+}
+
+.contactdiscoveryBg {
+    background-image: url('../images/s10.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.emailmarketing_bg {
+    background-image: url('../images/emailm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dataappendBg {
+    background-image: url('../images/d11.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.demandBg {
+    background-image: url('../images/dg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 400;
+}
+
+.socialBg {
+    background-image: url('../images/sm1.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.acountBg {
+    background-image: url('../images/acbg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.appointmentbg {
+    background-image: url('../images/appointment.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.accountbg {
+    background-image: url('../images/acbg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.seobg {
+    background-image: url('../images/seobg.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

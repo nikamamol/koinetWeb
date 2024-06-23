@@ -33,9 +33,7 @@
 
 <body>
     <!-- Spinner Start -->
-    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner"></div>
-    </div> -->
+
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner"></div>
     </div>
@@ -69,7 +67,8 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
-                <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Startup</h1>
+                <img src="images/Logo.png" alt="logo" width="150px" height="40px" />
+                <h5 class="mt-2">Koinet Media Ites Pvt Ltd.</h5>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -142,7 +141,6 @@
                             <h4 class="text-primary mb-0">+91 90215 68448</h4>
                         </div>
                     </div>
-                    <a href="quote.html" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a>
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
@@ -239,7 +237,12 @@
         </div>
     </div>
     <!-- Vendor End -->
+    <form>
+        <div class="recaptcha-container">
+            <div class="g-recaptcha" data-sitekey="6Ld3OPYpAAAAAEFwTbe61yzBBwg07nogKwTY82iu"></div>
+        </div>
 
+    </form>
 
     <!-- Footer Start -->
     <footer>
@@ -310,6 +313,8 @@
 
 
     <!-- JavaScript Libraries -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
