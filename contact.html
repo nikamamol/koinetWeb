@@ -160,26 +160,26 @@
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-                    <form>
+                    <form id="contactForm">
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <input type="text" class="form-control border-0 bg-light px-4" placeholder="Your Name" style="height: 55px;">
+                                <input type="text" id="name" class="form-control border-0 bg-light px-4" placeholder="Your Name" style="height: 55px;" required>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" class="form-control border-0 bg-light px-4" placeholder="Your Email" style="height: 55px;">
+                                <input type="email" id="email" class="form-control border-0 bg-light px-4" placeholder="Your Email" style="height: 55px;" required>
                             </div>
                             <div class="col-12">
-                                <input type="number" class="form-control border-0 bg-light px-4" placeholder="Phone Number" style="height: 55px;">
+                                <input type="number" id="phone" class="form-control border-0 bg-light px-4" placeholder="Phone Number" style="height: 55px;">
                             </div>
-
                             <div class="col-12">
-                                <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Message"></textarea>
+                                <textarea id="message" class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Message" required></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
+
                 </div>
                 <div class="col-lg-6 wow slideInUp" data-wow-delay="0.6s">
                     <iframe class="w-100 rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2848144443583!2d73.94209237423843!3d18.56119396793397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c36333b47b93%3A0x842ef6b263c7b5bf!2sKoinet%20Media%20Ites%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1717990873247!5m2!1sen!2sin"
@@ -262,9 +262,11 @@
                         <h4 class="text-white mb-4">Newsletter</h4>
                         <p>You can opt out of our newsletters at any time. See our privacy policy</p>
                         <div class="position-relative w-100">
-                            <form action="/send-email" method="post" class="position-relative">
-                                <input class="form-control  w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Your email" required />
-                                <button type="submit" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            <form id="signupForm" class="position-relative" action="https://formspree.io/f/xyzggpzp" method="POST">
+                                <input class="form-control py-3 " type="email" name="email" placeholder="Your email" required>
+                                <div class="text-start">
+                                    <button type="submit" class="btn btn-danger py-2 position-absolute  mt-2 btn-lg">Submit</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -287,6 +289,48 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-danger btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // Gather form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const phone = document.getElementById('phone').value;
+
+            // Create an object to hold the data
+            const formData = {
+                name: name,
+                email: email,
+                message: message,
+                phone: phone,
+            };
+
+            try {
+                // Send the data to the backend using Fetch API
+                const response = await fetch('http://localhost:9000/api/postContact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your message!');
+                    // Clear the form fields
+                    document.getElementById('contactForm').reset();
+                } else {
+                    const errorData = await response.json();
+                    alert('Error: ' + errorData.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while sending your message. Please try again later.');
+            }
+        });
+    </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

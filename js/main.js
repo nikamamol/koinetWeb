@@ -123,3 +123,48 @@
     });
 
 })(jQuery);
+
+
+// contact form logic
+document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    // Gather form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const phone = document.getElementById('phone').value;
+
+    // Create an object to hold the data
+    const formData = {
+        name: name,
+        email: email,
+        message: message,
+        phone: phone,
+    };
+
+    try {
+        // Send the data to the backend using Fetch API
+        const response = await fetch('http://localhost:9000/api/postContact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            alert('Thank you for your message!');
+            // Clear the form fields
+            document.getElementById('contactForm').reset();
+        } else {
+            const errorData = await response.json();
+            alert('Error: ' + errorData.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while sending your message. Please try again later.');
+    }
+});
+
+// blog page code

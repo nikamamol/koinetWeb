@@ -181,71 +181,20 @@
         </div>
     </div>
 
+
+
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">Latest Blog</h5>
                 <h1 class="mb-0">Read The Latest Articles from Our Blog Post</h1>
             </div>
-            <div class="row g-5">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/blog-1.jpg" alt="">
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : 01 Jun 2024</small>
-                            </div>
-                            </a>
-                            <a href="viewblog.html" class="text-decoration-none">
-                                <h4 class="mb-3">Innovation in Customer Retention Strategies</h4>
-                            </a>
-                            <p>With the rise of social media, businesses have gained access to a whole new platform for nurturing B2B relationships.</p>
-                            <a class="text-uppercase" href="viewblog.html">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/blog-2.jpg" alt="">
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : 01 Jun 2024</small>
-
-                            </div>
-                            <a href="viewblog.html" class="text-decoration-none">
-                                <h4 class="mb-3">A/B TESTING TO OPTIMIZE EMAIL CONTENT AND DESIGN MASTERING A/B TESTING:</h4>
-                            </a>
-                            <p>Unlocking email content and design optimization</p>
-                            <a class="text-uppercase" href="viewblog.html">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="images/1717354294992.png" alt="">
-                            <!-- <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a> -->
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : 01 Jun 2024</small>
-
-                            </div>
-                            <a href="viewblog.html" class="text-decoration-none">
-                                <h4 class="mb-3">THE ROLE OF CHATBOTS IN B2B CUSTOMER SERVICE</h4>
-                            </a>
-                            <p>Chatbots are becoming increasingly popular in B2B customer service due to their ability to provide quick, convenient, and personalized support to customers.</p>
-                            <a class="text-uppercase" href="viewblog.html">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-5" id="blogList">
+                <!-- Blog items will be dynamically populated here -->
             </div>
         </div>
     </div>
+
     <form>
         <div class="recaptcha-container">
             <div class="g-recaptcha" data-sitekey="6Ld3OPYpAAAAAEFwTbe61yzBBwg07nogKwTY82iu"></div>
@@ -296,9 +245,11 @@
                         <h4 class="text-white mb-4">Newsletter</h4>
                         <p>You can opt out of our newsletters at any time. See our privacy policy</p>
                         <div class="position-relative w-100">
-                            <form action="/send-email" method="post" class="position-relative">
-                                <input class="form-control  w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Your email" required />
-                                <button type="submit" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            <form id="signupForm" class="position-relative" action="https://formspree.io/f/xyzggpzp" method="POST">
+                                <input class="form-control py-3 " type="email" name="email" placeholder="Your email" required>
+                                <div class="text-start">
+                                    <button type="submit" class="btn btn-danger py-2 position-absolute  mt-2 btn-lg">Submit</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -335,6 +286,56 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            try {
+                const response = await fetch('http://localhost:9000/api/getblogs'); // Fetch blog posts from your API
+                if (!response.ok) {
+                    throw new Error('Failed to fetch blog posts');
+                }
+                const blogPosts = await response.json(); // Extract JSON data from the response
+                const blogListContainer = document.getElementById('blogList');
+
+                // Iterate over each blog post and create HTML elements dynamically
+                blogPosts.forEach(post => {
+                    const formatDate = (dateString) => {
+                        const options = {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        };
+                        return new Date(dateString).toLocaleDateString('en-GB', options);
+                    };
+
+                    const blogItem = document.createElement('div');
+                    blogItem.classList.add('col-lg-4', 'wow', 'slideInUp');
+                    blogItem.setAttribute('data-wow-delay', '0.3s');
+                    blogItem.innerHTML = `
+                        <div class="blog-item bg-light rounded overflow-hidden">
+                            <div class="blog-img position-relative overflow-hidden">
+                                <img class="img-fluid" src="${post.imageUrl}" alt="">
+                            </div>
+                            <div class="p-4">
+                                <div class="d-flex mb-3 justify-content-between text-dark">
+                                    <small class=""><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : ${formatDate(post.date)}</small>
+                                    <small><i class="far fa-list-alt text-primary me-2"></i> ${post.category}</small>
+                                </div>
+                                <a href="viewblog.html" class="text-decoration-none">
+                                    <h4 class="mb-3">${post.title}</h4>
+                                </a>
+                                <a class="text-uppercase" href="viewblog.html">Read More <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    `;
+                    blogListContainer.appendChild(blogItem);
+                });
+
+            } catch (error) {
+                console.error('Error fetching and displaying blog posts:', error);
+                // Handle error display or fallback content here
+            }
+        });
+    </script>
 </body>
 
 </html>
