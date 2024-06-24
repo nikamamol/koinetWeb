@@ -145,7 +145,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
     try {
         // Send the data to the backend using Fetch API
-        const response = await fetch('http://localhost:9000/api/postContact', {
+        const response = await fetch('https://koinetwebbackend.onrender.com/api/postContact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

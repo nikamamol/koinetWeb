@@ -289,7 +289,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", async function() {
             try {
-                const response = await fetch('http://localhost:9000/api/getblogs'); // Fetch blog posts from your API
+                const response = await fetch('https://koinetwebbackend.onrender.com/api/getblogs'); // Fetch blog posts from your API
                 if (!response.ok) {
                     throw new Error('Failed to fetch blog posts');
                 }
