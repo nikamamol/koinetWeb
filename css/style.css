@@ -730,3 +730,12 @@ h6,
     object-fit: cover;
     z-index: -1;
 }
+
+.sticky-icons {
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 200px;
+    margin-left: 170px;
+    /* Adjust if necessary */
+}
