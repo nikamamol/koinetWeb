@@ -156,15 +156,15 @@
         });
 
         // Function to check if user is authenticated (has token in localStorage)
-        // const isAuthenticated = () => {
-        //     return localStorage.getItem('RegisterUser') !== null;
-        // };
+        const isAuthenticated = () => {
+            return localStorage.getItem('registredUserLoginToken') !== null;
+        };
 
         // On page load, check authentication status and initialize form
         document.addEventListener('DOMContentLoaded', () => {
-            // if (!isAuthenticated()) {
-            //     window.location.href = 'login.html'; // Redirect to login page if not authenticated
-            // }
+            if (!isAuthenticated()) {
+                window.location.href = 'login.html'; // Redirect to login page if not authenticated
+            }
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -49,7 +49,7 @@
                             <span class="text-red">L</span>og-<span class="text-red">I</span>n <span class="text-red">F</span>orm
                         </p>
                     </div>
-                    <form>
+                    <form id="loginForm">
                         <div class="mb-2">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" class="form-control" aria-describedby="emailHelp" required />
@@ -67,10 +67,56 @@
                         </div>
                     </form>
                     <div id="message" class="text-center mt-3"></div>
+
+                    <div id="message" class="text-center mt-3"></div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const messageDiv = document.getElementById('message');
+
+            loginForm.addEventListener('submit', async(event) => {
+                event.preventDefault(); // Prevent the form from submitting via browser default
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                try {
+                    const response = await fetch('https://koinetwebbackend.onrender.com/api/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password
+                        }),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Login failed.');
+                    }
+
+                    const data = await response.json();
+
+                    // Handle successful login
+                    localStorage.setItem('registredUserLoginToken', data.token); // Save token to localStorage or sessionStorage if needed
+                    messageDiv.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+
+                    // Redirect or perform any other action after successful login
+                    window.location.href = 'addblog.html';
+
+                } catch (error) {
+                    console.error('Error logging in:', error);
+                    messageDiv.innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+                }
+            });
+        });
+    </script>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
