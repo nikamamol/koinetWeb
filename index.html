@@ -573,6 +573,9 @@
             <div class="row g-5" id="blogList">
                 <!-- Blog items will be dynamically populated here -->
             </div>
+            <div class="float-end mt-3">
+                <a class="btn btn-danger rounded-pill" href="blog.html">More Blogs <i class="bi bi-arrow-right"></i></a>
+            </div>
         </div>
     </div>
 
@@ -747,9 +750,9 @@
                     blogItem.classList.add('col-lg-4', 'wow', 'slideInUp');
                     blogItem.setAttribute('data-wow-delay', '0.3s');
                     blogItem.innerHTML = `
-                <div class="blog-item bg-light rounded-4 shadow overflow-hidden h-100 ">
+                <div class="blog-item bg-light rounded-2 shadow overflow-hidden h-100 ">
                     <div class="blog-img position-relative overflow-hidden">
-                        <img class="img-fluid rounded-4" src="${post.imageUrl}" alt="">
+                        <img class="img-fluid rounded-2" src="${post.imageUrl}" alt="" style="height:200px; width:100%">
                     </div>
                     <div class="p-4">
                         <div class="d-flex mb-3 justify-content-between text-dark">

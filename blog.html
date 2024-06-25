@@ -328,9 +328,9 @@
                             blogItem.setAttribute('data-wow-delay', '0.3s');
                             blogItem.innerHTML = `
                         <div class="blog-item bg-light rounded-4 shadow overflow-hidden h-100 ">
-                            <div class="blog-img position-relative overflow-hidden">
-                                <img class="img-fluid rounded-4" src="${post.imageUrl}" alt="">
-                            </div>
+                           <div class="blog-img position-relative overflow-hidden">
+                        <img class="img-fluid rounded-2" src="${post.imageUrl}" alt="" style="height:200px; width:100%">
+                    </div>
                             <div class="p-4">
                                 <div class="d-flex mb-3 justify-content-between text-dark">
                                     <small class=""><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : ${formatDate(post.date)}</small>
@@ -339,7 +339,7 @@
                                 <a href='viewblog.html?id=${post._id}?title=${post.title}' class="text-decoration-none">
                                     <p class="mb-3 fs-6 text-dark fw-bold">${post.title}</p>
                                 </a>
-                                <a class="text-uppercase" href='viewblog.html?id=${post._id}?title=${post.title}'>Read More <i class="bi bi-arrow-right"></i></a>
+                                <a class=" text-red" href='viewblog.html?id=${post._id}?title=${post.title}'>Read More <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
                     `;
