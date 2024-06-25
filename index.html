@@ -729,8 +729,11 @@
                 const blogPosts = await response.json(); // Extract JSON data from the response
                 const blogListContainer = document.getElementById('blogList');
 
-                // Iterate over each blog post and create HTML elements dynamically
-                blogPosts.forEach(post => {
+                // Sort blog posts by date in descending order
+                blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // Iterate over the latest 3 blog posts and create HTML elements dynamically
+                blogPosts.slice(0, 3).forEach(post => {
                     const formatDate = (dateString) => {
                         const options = {
                             year: 'numeric',
@@ -744,22 +747,22 @@
                     blogItem.classList.add('col-lg-4', 'wow', 'slideInUp');
                     blogItem.setAttribute('data-wow-delay', '0.3s');
                     blogItem.innerHTML = `
-                        <div class="blog-item bg-light rounded overflow-hidden">
-                            <div class="blog-img position-relative overflow-hidden">
-                                <img class="img-fluid" src="${post.imageUrl}" alt="">
-                            </div>
-                            <div class="p-4">
-                                <div class="d-flex mb-3 justify-content-between text-dark">
-                                    <small class=""><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : ${formatDate(post.date)}</small>
-                                    <small><i class="far fa-list-alt text-primary me-2"></i> ${post.category}</small>
-                                </div>
-                                <a href="viewblog.html" class="text-decoration-none">
-                                    <h4 class="mb-3">${post.title}</h4>
-                                </a>
-                                <a class="text-uppercase" href="viewblog.html">Read More <i class="bi bi-arrow-right"></i></a>
-                            </div>
+                <div class="blog-item bg-light rounded-4 shadow overflow-hidden h-100 ">
+                    <div class="blog-img position-relative overflow-hidden">
+                        <img class="img-fluid rounded-4" src="${post.imageUrl}" alt="">
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex mb-3 justify-content-between text-dark">
+                            <small class=""><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : ${formatDate(post.date)}</small>
+                            <small><i class="far fa-list-alt text-primary me-2"></i> ${post.category}</small>
                         </div>
-                    `;
+                        <a href='viewblog.html?id=${post._id}?title=${post.title}' class="text-decoration-none">
+                            <p class="mb-3 fs-6 text-dark fw-bold">${post.title}</p>
+                        </a>
+                        <a class="text-uppercase" href='viewblog.html?id=${post._id}?title=${post.title}'>Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            `;
                     blogListContainer.appendChild(blogItem);
                 });
 
