@@ -739,3 +739,7 @@ h6,
     margin-left: 170px;
     /* Adjust if necessary */
 }
+
+.nodisplay {
+    display: none;
+}
