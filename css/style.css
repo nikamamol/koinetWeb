@@ -601,7 +601,8 @@ h6,
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 213, 255, 0.541) 100%);
 }
 
-.recaptcha-container {
+
+/* .recaptcha-container {
     position: fixed;
     bottom: 0;
     margin-left: -220px;
@@ -614,7 +615,7 @@ h6,
     margin-left: 0px;
     z-index: 1000;
     transition: margin-left 1s;
-}
+} */
 
 .rounded-border {
     border-radius: 20px;

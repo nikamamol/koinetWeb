@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Blog Post</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
@@ -20,26 +21,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/animate/animate.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <!-- download pdf -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <style>
-        .text_color {
-            color: red;
-        }
-    </style>
+    <link href="./css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -62,28 +58,31 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+    <div class="container-fluid p-0 sticky-top ">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0 " style="background-color: #d2d4dda1;">
             <a href="index.html" class="navbar-brand p-0">
                 <img src="images/Logo.png" alt="logo" width="150px" height="40px" />
-                <h5 class="mt-2">Koinet Media Ites Pvt Ltd.</h5>
+                <h5 class="mt-2 text-dark">Koinet Media Ites Pvt Ltd.</h5>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0 text_color">
-                    <a href="index.html" class="nav-item nav-link ">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <a href="service.html" class="nav-item nav-link">Blog</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link text-dark ">Home</a>
+                    <a href="about.html" class="nav-item nav-link text-dark ">About</a>
+                    <a href="service.html" class="nav-item nav-link text-dark ">Services</a>
+                    <a href="blog.html" class="nav-item nav-link text-dark ">Blog</a>
+                    <a href="contact.html" class="nav-item nav-link text-dark ">Contact</a>
                 </div>
+
             </div>
         </nav>
+
+
     </div>
 
-    <div class="container-fluid marginContainer" style="margin-top: 110px;">
+    <div class="container-fluid marginContainer text-dark " style="margin-top: 110px;">
         <div class="row">
             <div class="col-lg-1 mt-5 py-5 ">
                 <div class="col-12 col-lg-6 text-start text-lg-end  my-auto sticky-icons d-flex flex-sm-row flex-lg-column">
@@ -123,22 +122,51 @@
                 </div>
             </div>
             <div class="my-3 text-center">
-                <button id="downloadBtn" class="btn btn-primary w-25 py-3 rounded-2" type="submit">Download PDF <i class="fa fa-download ms-2"></i></button>
+                <button id="open_modal" class="btn btn-primary w-25 py-3 rounded-2" type="button">Download PDF <i class="fa fa-download ms-2"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-2 shadow border-0 rounded-5">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="../images/Logo.png" alt="" class="img-fluid mb-3" width="200px" height="50px">
+                    <p class="fw-bold fs-4">Koinet Media Blog</p>
+                    <p class="fs-2 fw-bold">Thank you for your interest! </p>
+                    <p>Our team will get in touch at after downloading our case-studies</p>
+                    <form class="position-relative" action="https://formspree.io/f/mzzppvba" method="POST">
+                        <input class="form-control popupBg w-100 py-3 ps-4 pe-5" id="emailInput" type="email" name="email" placeholder="Enter your email " required>
+                        <button type="submit" id="downloadBtn" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-3">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var button = document.getElementById('open_modal');
+            var welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+            button.addEventListener('click', function() {
+                welcomeModal.show();
+            });
+        });
+    </script>
+    <script>
         // Function to fetch blog post data
         async function fetchBlogPost(blogId) {
             try {
-                console.log('Fetching blog post with ID:', blogId);
                 const response = await fetch(`https://koinetwebbackend.onrender.com/api/blog/${blogId}`);
                 if (!response.ok) {
                     throw new Error('Blog post not found');
                 }
                 const blogPost = await response.json();
-                console.log('Blog post data received:', blogPost);
                 displayBlogPost(blogPost);
             } catch (err) {
                 console.error('Error retrieving blog post:', err);
@@ -147,35 +175,88 @@
 
         // Function to display blog post data
         function displayBlogPost(blogPost) {
-            document.getElementById('blog-image').src = blogPost.imageUrl || '';
-            document.getElementById('blog-category').textContent = blogPost.category || 'Unknown';
-            document.getElementById('blog-date').textContent = blogPost.date || 'Unknown';
-            document.getElementById('blog-title').textContent = blogPost.title || 'Untitled';
-            document.getElementById('blog-content').innerHTML = blogPost.content || '';
+            document.getElementById('blog-image').src = blogPost.imageUrl;
+            document.getElementById('blog-title').textContent = blogPost.title;
+            document.getElementById('blog-category').textContent = blogPost.category;
+            document.getElementById('blog-date').textContent = new Date(blogPost.date).toLocaleDateString();
+            document.getElementById('blog-content').innerHTML = blogPost.content;
         }
 
-        // Get blog ID from URL parameters
+        // Function to download blog post as PDF
+        async function downloadPDF() {
+            const emailInput = document.getElementById('emailInput').value.trim();
+
+            // Validate email input
+            if (!emailInput) {
+                alert('Please provide your email to download the PDF.');
+                return;
+            }
+
+            const blogContent = document.querySelector('.col-lg-7'); // Select the blog post container
+            const contentHeight = blogContent.scrollHeight; // Total scroll height of the content
+            const pageHeight = 800; // Height of each PDF page (adjust as necessary)
+
+            let currentPosition = 0;
+            const {
+                jsPDF
+            } = window.jspdf;
+            const pdf = new jsPDF('p', 'pt', 'a4');
+
+            while (currentPosition < contentHeight) {
+                const canvas = await html2canvas(blogContent, {
+                    scale: 1,
+                    windowWidth: blogContent.offsetWidth,
+                    windowHeight: blogContent.offsetHeight,
+                    x: 0,
+                    y: currentPosition,
+                    width: blogContent.offsetWidth,
+                    height: pageHeight,
+                    useCORS: true, // Ensure CORS is enabled
+                });
+
+                const imgData = canvas.toDataURL('image/png');
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+                currentPosition += pageHeight;
+
+                if (currentPosition < contentHeight) {
+                    pdf.addPage(); // Add a new page if there's more content to capture
+                }
+            }
+
+            pdf.save('blog-post.pdf');
+        }
+
+        // Event listener for download button
+        document.getElementById('downloadBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Call downloadPDF() function to initiate PDF download
+            downloadPDF();
+        });
+
+        // Get the blog ID from URL parameters and fetch the blog post
         const urlParams = new URLSearchParams(window.location.search);
         const blogId = urlParams.get('id');
-
-        // Fetch and display the blog post
         if (blogId) {
             fetchBlogPost(blogId);
         } else {
-            console.error('Blog ID not provided in URL');
+            console.error('No blog ID provided in the URL');
         }
     </script>
 
 
-
-
-
+    <!-- 
     <form action="" method="POST" class=" recaptcha-container ">
         <div class="g-recaptcha " data-sitekey="6Lf6gQEqAAAAAJKaLIjO4drMp-GMKAvId5yejdE5"></div>
-    </form>
+        <br/>
+    </form> -->
     <footer>
         <div class="container-fluid  py-5 wow fadeIn position-relative" data-wow-delay="0.1s ">
-
             <div class="container content-container ">
                 <video autoplay muted loop id="background-video" class="" style="opacity: 2;">
                 <source src="images/footer.mp4" type="video/mp4" />
@@ -243,20 +324,16 @@
 
     </footer>
 
-    <a href="#" class="btn btn-lg btn-danger btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-oP4VL0jQor8XnaDQUH+zF1b42yYnd01vR3MO0z5Y1BQB2l1K4j6FI2BvoEbQ8k0a" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-oR6E/L3OKE+G4EI2V9ow7gt7YB43k6T7UE3AGmfz1vvHyGSEF5FxLJ7c+sBTL+g7" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
 </body>
 
 </html>
