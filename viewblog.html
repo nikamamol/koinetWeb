@@ -35,6 +35,11 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .text_color {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -67,7 +72,7 @@
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
+                <div class="navbar-nav ms-auto py-0 text_color">
                     <a href="index.html" class="nav-item nav-link ">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="service.html" class="nav-item nav-link">Services</a>
@@ -78,10 +83,10 @@
         </nav>
     </div>
 
-    <div class="container-fluid marginContainer" style="margin-top: 100px;">
+    <div class="container-fluid marginContainer" style="margin-top: 110px;">
         <div class="row">
-            <div class="col-lg-1 mt-5 py-5 UP">
-                <div class="col-12 col-lg-6 text-start text-lg-end my-auto sticky-icons d-flex flex-sm-row flex-lg-column">
+            <div class="col-lg-1 mt-5 py-5 ">
+                <div class="col-12 col-lg-6 text-start text-lg-end  my-auto sticky-icons d-flex flex-sm-row flex-lg-column">
                     <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" href="https://x.com/MediaKoinet">
                         <i class="fab fa-twitter"></i>
                     </a>
@@ -118,7 +123,7 @@
                 </div>
             </div>
             <div class="my-3 text-center">
-                <button id="downloadBtn" class="btn btn-danger rounded-pill btn-lg">Download PDF <i class="fa fa-download ms-2"></i></button>
+                <button id="downloadBtn" class="btn btn-primary w-25 py-3 rounded-2" type="submit">Download PDF <i class="fa fa-download ms-2"></i></button>
             </div>
         </div>
     </div>
@@ -161,11 +166,15 @@
         }
     </script>
 
+
+
+
+
     <form action="" method="POST" class=" recaptcha-container ">
         <div class="g-recaptcha " data-sitekey="6Lf6gQEqAAAAAJKaLIjO4drMp-GMKAvId5yejdE5"></div>
     </form>
     <footer>
-        <div class="container-fluid my-5  py-5 wow fadeIn position-relative" data-wow-delay="0.1s ">
+        <div class="container-fluid  py-5 wow fadeIn position-relative" data-wow-delay="0.1s ">
 
             <div class="container content-container ">
                 <video autoplay muted loop id="background-video" class="" style="opacity: 2;">
@@ -209,9 +218,9 @@
                         <p>You can opt out of our newsletters at any time. See our privacy policy</p>
                         <div class="position-relative w-100">
                             <form id="signupForm" class="position-relative" action="https://formspree.io/f/xyzggpzp" method="POST">
-                                <input class="form-control py-3 " type="email" name="email" placeholder="Your email" required>
-                                <div class="text-start">
-                                    <button type="submit" class="btn btn-danger py-2 position-absolute  mt-2 btn-lg">Submit</button>
+                                <input class="form-control py-2 " type="email" name="email" placeholder="Your email" required>
+                                <div class="text-center">
+                                    <a type="submit" class="btn btn-primary py-2 w-100 mt-2 btn-sm">Submit</a>
                                 </div>
                             </form>
                         </div>
@@ -225,7 +234,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="fw-medium text-light" href="#">Koinet | Media</a>, All Right Reserved.
+                        &copy; <a class="fw-medium " href="index.html">Koinet | Media</a>, All Right Reserved.
                     </div>
                 </div>
             </div>
