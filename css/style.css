@@ -745,3 +745,11 @@ h6,
 .nodisplay {
     display: none;
 }
+
+.changeBg {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.changeBg:hover {
+    transform: translateY(-10px);
+}
