@@ -67,7 +67,7 @@
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py- shadow py-lg-0">
             <a href="../index.html" class="navbar-brand p-0">
                 <img src="../images/Logo.png" alt="logo" width="150px" height="40px" />
                 <h5 class="mt-2">Koinet Media Ites Pvt Ltd.</h5>
@@ -77,11 +77,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="../index.html" class="nav-item nav-link">Home</a>
-                    <a href="../about.html" class="nav-item nav-link ">About</a>
-                    <a href="../service.html" class="nav-item nav-link">Services</a>
-                    <a href="../blog.html" class="nav-item nav-link">Blog</a>
-                    <a href="../contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="../index.html" class="nav-item nav-link text-dark">Home</a>
+                    <a href="../about.html" class="nav-item nav-link  text-dark">About</a>
+                    <!-- <a href="../service.html" class="nav-item nav-link">Services</a> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-item  text-dark" href="service.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu rounded-3 ">
+                            <li><a class="dropdown-item" href="../servicespages/accountmarketing.html">Account-Based Marketing</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/multichanel_lead.html">Multi-Channel Lead</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/contactdiscovery.html">Contact Discovery</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/emailmarketing.html">Email-Marketing</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/datappend.html">Data Append & Cleansing</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/demandgeneration.html">DEMAND GENERATION</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/socialmedia.html">Social Media Marketing</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/appointment.html">Appointment Generation</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/accountprofiling.html">Account Profiling</a></li>
+                            <li><a class="dropdown-item" href="../servicespages/seo.html">Search Engine Optimization (SEO)</a></li>
+                        </ul>
+                    </li>
+                    <a href="../blog.html" class="nav-item nav-link  text-dark">Blog</a>
+                    <a href="../contact.html" class="nav-item nav-link  text-dark">Contact</a>
                 </div>
             </div>
         </nav>
@@ -91,7 +108,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" style="margin-top: 100px;">
                 <div>
                     <h1 class="fw-bold text-center my-5"><span class="text-red">T</span>erms
                         <span class="text-red">C</span>onditions</h1>
