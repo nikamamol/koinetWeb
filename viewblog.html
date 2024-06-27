@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Blog Post</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
-
+    <meta property="og:title" content="Your Blog Post Title">
+    <meta property="og:description" content="Description of your blog post">
+    <meta property="og:image" content="URL to an image">
+    <meta property="og:url" content="URL of your blog post">
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,16 +105,17 @@
         <div class="row">
             <div class="col-lg-1 mt-5 py-5 ">
                 <div class="col-12 col-lg-6 text-start text-lg-end  my-auto sticky-icons d-flex flex-sm-row flex-lg-column">
-                    <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" href="https://x.com/MediaKoinet">
-                        <i class="fab fa-twitter"></i>
+                    <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" onclick="shareOnTwitter()">
+                        <i class="fab fa-twitter fw-normal"></i>
                     </a>
-                    <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" href="https://www.facebook.com/koiNetMediaITES">
+
+                    <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" onclick="shareOnFacebook()">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" href="https://www.instagram.com/koinetmedia">
-                        <i class="fab fa-instagram"></i>
+                    <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" onclick="shareOnInstagram()">
+                        <i class="fab fa-instagram fw-normal"></i>
                     </a>
-                    <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" href="https://www.linkedin.com/company/31556606">
+                    <a class="btn btn-square btn-danger rounded-circle me-2 mb-2" onclick="shareOnLinkedIn()">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
@@ -143,7 +146,43 @@
             </div>
         </div>
     </div>
+    <script>
+        function shareOnTwitter() {
+            const postTitle = document.getElementById('blog-title').textContent; // Get your post title dynamically
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(postTitle)}&via=your_twitter_handle`);
+        }
 
+        function shareOnFacebook() {
+            const postTitle = document.getElementById('blog-title').textContent; // Get your post title dynamically
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(postTitle)}`);
+        }
+
+        function shareOnInstagram() {
+            const postTitleElement = document.getElementById('blog-title');
+
+            if (!postTitleElement) {
+                console.error('Element with ID "blog-title" not found.');
+                return;
+            }
+
+            const postTitle = postTitleElement.textContent.trim();
+            const postUrl = encodeURIComponent(window.location.href);
+            const instagramUrl = `https://www.instagram.com/create/story/?url=${postUrl}&title=${encodeURIComponent(postTitle)}`;
+
+            // Try opening the Instagram URL in a new window
+            try {
+                window.open(instagramUrl, '_blank');
+            } catch (err) {
+                console.error('Failed to open Instagram URL:', err);
+            }
+        }
+
+        function shareOnLinkedIn() {
+            const postTitle = document.getElementById('blog-title').textContent; // Get your post title dynamically
+            const postUrl = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`);
+        }
+    </script>
 
 
     <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
