@@ -746,7 +746,7 @@ h6,
 }
 
 .changeBg_color {
-    background-color: white;
+    background-color: aliceblue;
     transition: transform 0.2s ease-in-out;
 }
 
