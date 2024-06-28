@@ -134,6 +134,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
     const phone = document.getElementById('phone').value;
+    const companyName = document.getElementById('companyName').value;
+    const country = document.getElementById('country').value;
 
     // Create an object to hold the data
     const formData = {
@@ -141,6 +143,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
         email: email,
         message: message,
         phone: phone,
+        companyName: companyName,
+        country: country
     };
 
     try {

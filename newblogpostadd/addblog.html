@@ -184,6 +184,7 @@
                     } else {
                         alert('Blog created successfully!');
                         // Optionally, redirect to the blog page or clear the form
+                        document.getElementById('myForm').reset()
                     }
                 })
                 .catch(error => {

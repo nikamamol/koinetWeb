@@ -756,3 +756,7 @@ h6,
     background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 233, 226, 1) 100%);
     border-radius: 20px;
 }
+
+.inputBg {
+    background-color: #1dd8b6;
+}
