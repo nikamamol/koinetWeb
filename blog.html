@@ -285,11 +285,14 @@
                 if (!response.ok) {
                     throw new Error('Failed to fetch blog posts');
                 }
-                const blogPosts = await response.json();
+                let blogPosts = await response.json();
                 const blogListContainer = document.getElementById('blogList');
                 const categoryDropdown = document.getElementById('categoryDropdown');
                 const searchForm = document.getElementById('searchForm');
                 const searchInput = document.getElementById('searchInput');
+
+                // Sort blog posts by date (newest first)
+                blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
                 // Populate dropdown with categories
                 const categories = [...new Set(blogPosts.map(post => post.category))];
@@ -317,10 +320,9 @@
                     });
 
                     if (filteredPosts.length === 0) {
-                        blogListContainer.innerHTML = '<div class="text-center"><img src="images/datanotfound.jpg"  alt="nodata" width="100px" height="100px"/></div>';
+                        blogListContainer.innerHTML = '<div class="text-center"><img src="images/datanotfound.jpg" alt="nodata" width="100px" height="100px"/></div>';
                         return;
                     }
-
 
                     filteredPosts.forEach(post => {
                         const formatDate = (dateString) => {
@@ -336,22 +338,22 @@
                         blogItem.classList.add('col-lg-4', 'wow', 'slideInUp');
                         blogItem.setAttribute('data-wow-delay', '0.3s');
                         blogItem.innerHTML = `
-                            <div class="blog-item bg-light changeBg shadow overflow-hidden h-100">
-                               <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid " src="${post.imageUrl}" alt="" style="height:200px; width:100%">
+                    <div class="blog-item bg-light changeBg shadow overflow-hidden h-100">
+                        <div class="blog-img position-relative overflow-hidden">
+                            <img class="img-fluid" src="${post.imageUrl}" alt="" style="height:200px; width:100%">
                         </div>
-                                <div class="p-4">
-                                    <div class="d-flex mb-3 justify-content-between text-dark">
-                                        <small class=""><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : ${formatDate(post.date)}</small>
-                                        <small><i class="far fa-list-alt text-primary me-2"></i> ${post.category}</small>
-                                    </div>
-                                    <a href='viewblog.html?id=${post._id}?title=${post.title}' class="text-decoration-none">
-                                        <p class="mb-3 fs-6 text-dark fw-bold">${post.title}</p>
-                                    </a>
-                                    <a class=" text-red" href='viewblog.html?id=${post._id}?title=${post.title}'>Read More <i class="bi bi-arrow-right"></i></a>
-                                </div>
+                        <div class="p-4">
+                            <div class="d-flex mb-3 justify-content-between text-dark">
+                                <small class=""><i class="far fa-calendar-alt text-primary me-2"></i> Publish On : ${formatDate(post.date)}</small>
+                                <small><i class="far fa-list-alt text-primary me-2"></i> ${post.category}</small>
                             </div>
-                        `;
+                            <a href='viewblog.html?id=${post._id}?title=${post.title}' class="text-decoration-none">
+                                <p class="mb-3 fs-6 text-dark fw-bold">${post.title}</p>
+                            </a>
+                            <a class="text-red" href='viewblog.html?id=${post._id}?title=${post.title}'>Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                `;
                         blogListContainer.appendChild(blogItem);
                     });
                 };
