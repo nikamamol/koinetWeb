@@ -747,7 +747,7 @@ h6,
 
 .changeBg_color {
     background-color: aliceblue;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.9s ease-in-out;
 }
 
 .changeBg_color:hover {
