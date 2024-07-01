@@ -760,3 +760,7 @@ h6,
 .inputBg {
     background-color: #1dd8b6;
 }
+
+ul.cusomHeight li {
+    line-height: 1;
+}
